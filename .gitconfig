@@ -1,0 +1,49 @@
+[user]
+  name =
+  email =
+
+[alias]
+  co = checkout
+  stat = !sh -c 'git status -sb && git diff --cached --stat && git stash list'
+  tree = log -15 --graph --branches --all --abbrev-commit --pretty=format:'%C(red)%h%Creset%C(bold blue)%d%Creset %s %C(green)(%ar)%Creset %C(blue)<%ae>%Creset'
+  who = shortlog -s --
+  br = branch -a -vv
+  rem = "!sh -c 'for r in `git remote`; do git remote show $r; done'"
+  up = fetch --all -v
+  dico = !sh -c 'git diff `git log -1 --pretty=%h`'
+  pp = !sh -c 'git pull --rebase && git push'
+  ap = add --patch
+
+[push]
+  default = simple
+
+[core]
+  editor = vim
+  excludesfile = ~/.gitignore_global
+
+[merge]
+  summary = true
+  tool = vimdiff
+
+[color]
+  ui = auto
+
+[color "branch"]
+  current = yellow black
+  local = blue
+  remote = magenta
+
+[color "diff"]
+  meta = magenta
+  frag = magenta bold
+  old = red reverse
+  new = blue reverse
+
+[color "status"]
+  added = blue bold
+  changed = blue
+  untracked = red reverse
+  branch = magenta bold
+
+[rerere]
+  enabled = true
