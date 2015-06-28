@@ -13,6 +13,7 @@
   dico = !sh -c 'git diff `git log -1 --pretty=%h`'
   pp = !sh -c 'git pull --rebase && git push'
   ap = add --patch
+  pu = !sh -c 'git checkout master && git fetch -v upstream && git rebase -v upstream/master'
 
 [push]
   default = simple
