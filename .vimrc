@@ -15,6 +15,9 @@ au BufWinEnter * match ExtraWhitespace /^\t*\zs \+/
 
 au BufWinLeave * call clearmatches()
 
+au BufWritePost *.sh !shellcheck %
+au BufWritePost *.py !flake8 %
+
 au FileType * set tabstop=2|set shiftwidth=2|set noexpandtab
 au FileType python set tabstop=4|set shiftwidth=4|set expandtab
 
