@@ -5,6 +5,7 @@ highlight ExtraWhitespace ctermbg=darkgreen guibg=lightgreen
 
 match ExtraWhitespace /\s\+$/
 
+au BufWritePost *.sh !shellcheck %
 au BufWritePost *.go !gofmt -w %
 au BufWritePost *.py !flake8 --ignore=E501,F821 %
 au BufWritePost *.pp !puppet parser validate --verbose %
@@ -28,3 +29,4 @@ au FileType go setlocal noexpandtab shiftwidth=4 tabstop=4 softtabstop=4 nolist
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhitespace /\s\+$/
 au InsertLeave * match ExtraWhitespace /^\t*\zs \+/
+
