@@ -11,9 +11,11 @@ match ExtraWhitespace /\s\+$/
 
 au BufWritePost *.sh !shellcheck %
 au BufWritePost *.go !gofmt -w %
-au BufWritePost *.py !flake8 --ignore=E501,F821 %
+au BufWritePost *.py !python -m flake8 --ignore=E501,F821 %
 au BufWritePost *.pp !puppet parser validate --verbose %
 au BufWritePost *.md !mdl %
+au BufWritePost *.yml !yamllint %
+au BufWritePost *.yaml !yamllint %
 
 au BufEnter * set ai sw=2 ts=2 sta et fo=croql
 au BufEnter *.py set ai sw=4 ts=4 sta et fo=croql
