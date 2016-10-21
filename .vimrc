@@ -1,5 +1,9 @@
 set ruler
 set modeline
+set cryptmethod=blowfish2
+set nobackup
+set nowritebackup
+set viminfo=
 
 highlight ExtraWhitespace ctermbg=darkgreen guibg=lightgreen
 
