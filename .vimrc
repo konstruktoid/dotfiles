@@ -4,12 +4,13 @@ set cryptmethod=blowfish2
 set nobackup
 set nowritebackup
 set viminfo=
+syntax on
 
 highlight ExtraWhitespace ctermbg=darkgreen guibg=lightgreen
 
 match ExtraWhitespace /\s\+$/
 
-au BufWritePost *.sh !shellcheck %
+au BufWritePost *.sh !shellcheck -x %
 au BufWritePost *.go !gofmt -w %
 au BufWritePost *.py !python -m flake8 --ignore=E501,F821 %
 au BufWritePost *.pp !puppet parser validate --verbose %
