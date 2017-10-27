@@ -10,10 +10,11 @@ highlight ExtraWhitespace ctermbg=darkgreen guibg=lightgreen
 
 match ExtraWhitespace /\s\+$/
 
-au BufWritePost *.sh !shellcheck -x %
+au BufWritePost *.sh !shellcheck -x --format gcc %
 au BufWritePost *.go !gofmt -w %
-au BufWritePost *.py !python -m flake8 --ignore=E501,F821 %
+au BufWritePost *.py !python3 -m flake8 --ignore=E501,F821 %
 au BufWritePost *.pp !puppet parser validate --verbose %
+au BufWritePost *.pp !puppet-lint --no-80chars-check %
 au BufWritePost *.md !mdl %
 au BufWritePost *.yml !yamllint %
 au BufWritePost *.yaml !yamllint %
