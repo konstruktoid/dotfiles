@@ -1,6 +1,7 @@
 [user]
   name =
   email =
+  useConfigOnly = true
 
 [alias]
   co = checkout
@@ -8,11 +9,12 @@
   tree = log -15 --graph --branches --all --abbrev-commit --pretty=format:'%C(red)%h%Creset%C(bold blue)%d%Creset %s %C(green)(%ar)%Creset %C(blue)<%ae>%Creset'
   who = shortlog -s --
   br = branch -a -vv
-  rem = "!sh -c 'for r in `git remote`; do git remote show $r; done'"
+  rem = "!sh -c 'for r in $(git remote); do git remote show $r; done'"
   up = fetch --all -v
-  dico = !sh -c 'git diff `git log -1 --pretty=%h`'
+  dico = !sh -c 'git diff $(git log -1 --pretty=%h)'
   pp = !sh -c 'git pull --rebase && git push'
   ap = add --patch
+  alias = config --get-regexp ^alias\\.
   pu = !sh -c 'git checkout master && git fetch -v upstream && git rebase -v upstream/master'
 
 [push]
