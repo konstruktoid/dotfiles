@@ -5,6 +5,9 @@ set nowritebackup
 set paste
 set ruler
 set viminfo=
+set maxmempattern=25000
+set number
+set relativenumber
 syntax on
 
 highlight ExtraWhitespace ctermbg=darkgreen guibg=lightgreen
@@ -25,15 +28,18 @@ au BufWinLeave * call clearmatches()
 au BufWritePost *.go !gofmt -w %
 au BufWritePost *.md !mdl %
 au BufWritePost *.pp !puppet parser validate --verbose %
-au BufWritePost *.pp !puppet-lint --no-80chars-check --no-140chars-check %
-au BufWritePost *.py !python3 -m flake8 --ignore=E501,F821 %
-au BufWritePost *.py.erb !python3 -m flake8 --ignore=E501,F821 %
+au BufWritePost *.pp !puppet-lint %
+au BufWritePost *.py !black %
+au BufWritePost *.py.erb !black %
+au BufWritePost *.py !python3 -m flake8 --ignore=E501 %
+au BufWritePost *.py.erb !python3 -m flake8 --ignore=E501 %
 au BufWritePost *.sh !shellcheck -x --format gcc %
 au BufWritePost *.sh.erb !shellcheck -x --format gcc %
 au BufWritePost *.yaml !yamllint %
 au BufWritePost *.yml !yamllint %
+au BufWritePost Dockerfile* !hadolint %
 
-au BufWritePre *.py :%s/\s\+$//e
+au BufWritePre * :%s/\s\+$//e
 
 au FileType * set tabstop=2|set shiftwidth=2|set noexpandtab
 au FileType go setlocal noexpandtab shiftwidth=4 tabstop=4 softtabstop=4 nolist
