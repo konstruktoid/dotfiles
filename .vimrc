@@ -27,23 +27,28 @@ au BufWinLeave * call clearmatches()
 
 au BufWritePost *.go !gofmt -w %
 au BufWritePost *.md !mdl %
-au BufWritePost *.pp !puppet parser validate --verbose %
 au BufWritePost *.pp !puppet-lint %
 au BufWritePost *.py !black %
 au BufWritePost *.py.erb !black %
-au BufWritePost *.py !python3 -m flake8 --ignore=E501 %
-au BufWritePost *.py.erb !python3 -m flake8 --ignore=E501 %
+au BufWritePost *.py !pylint %
+au BufWritePost *.py.erb !pylint %
+au BufWritePost *.py !python3 -m flake8 --ignore=E501,W503 %
+au BufWritePost *.py.erb !python3 -m flake8 --ignore=E501,W503%
+au BufWritePost *.py !codespell %
 au BufWritePost *.sh !shellcheck -x --format gcc %
 au BufWritePost *.sh.erb !shellcheck -x --format gcc %
 au BufWritePost *.yaml !yamllint %
 au BufWritePost *.yml !yamllint %
 au BufWritePost Dockerfile* !hadolint %
+au BufWritePost *.ts !deno --unstable lint %
+au BufWritePost *.ts !deno fmt --check %
 
 au BufWritePre * :%s/\s\+$//e
 
 au FileType * set tabstop=2|set shiftwidth=2|set noexpandtab
 au FileType go setlocal noexpandtab shiftwidth=4 tabstop=4 softtabstop=4 nolist
 au FileType python set tabstop=4|set shiftwidth=4|set expandtab
+au FileType make setlocal noexpandtab
 
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhitespace /\s\+$/
