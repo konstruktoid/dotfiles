@@ -15,10 +15,13 @@
   pp = !sh -c 'git pull --rebase && git push'
   ap = add --patch
   alias = config --get-regexp ^alias\\.
-  pu = !sh -c 'git checkout master && git fetch -v upstream && git rebase -v upstream/master'
+  pu = !bash -c 'echo "git checkout BRANCH" && echo "git fetch -v upstream" && echo "git rebase -v upstream/BRANCH" && echo "git push"'
 
 [push]
   default = simple
+
+[commit]
+  verbose = true
 
 [core]
   editor = vim
@@ -50,3 +53,6 @@
 
 [rerere]
   enabled = true
+
+[url "https://github.com/"]
+  insteadOf = git://github.com/
