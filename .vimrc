@@ -1,13 +1,15 @@
 set cryptmethod=blowfish2
+set encoding=utf-8
+set fileencoding=utf-8
+set maxmempattern=25000
 set modeline
 set nobackup
 set nowritebackup
+set number
 set paste
+set relativenumber
 set ruler
 set viminfo=
-set maxmempattern=25000
-set number
-set relativenumber
 syntax on
 
 highlight ExtraWhitespace ctermbg=darkgreen guibg=lightgreen
@@ -29,11 +31,11 @@ au BufWritePost *.go !gofmt -w %
 au BufWritePost *.md !mdl %
 au BufWritePost *.pp !puppet-lint %
 au BufWritePost *.py !black %
-au BufWritePost *.py.erb !black %
+au BufWritePost *.py.j2 !black %
 au BufWritePost *.py !pylint %
-au BufWritePost *.py.erb !pylint %
-au BufWritePost *.py !python3 -m flake8 --ignore=E501,W503 %
-au BufWritePost *.py.erb !python3 -m flake8 --ignore=E501,W503%
+au BufWritePost *.py.j2 !pylint %
+au BufWritePost *.py !python3 -m flake8 --ignore=E501,W503,S101 %
+au BufWritePost *.py.j2 !python3 -m flake8 --ignore=E501,W503,S101%
 au BufWritePost *.py !codespell %
 au BufWritePost *.sh !shellcheck -x --format gcc %
 au BufWritePost *.sh.erb !shellcheck -x --format gcc %
