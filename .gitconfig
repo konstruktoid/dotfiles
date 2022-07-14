@@ -26,6 +26,7 @@
 [core]
   editor = vim
   excludesfile = ~/.gitignore_global
+  fsmonitor = true
 
 [merge]
   summary = true
@@ -60,3 +61,5 @@
   rebase = true
 [advice]
   detachedHead = false
+[init]
+  defaultBranch = main
