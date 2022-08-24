@@ -1,7 +1,7 @@
 [user]
-  useConfigOnly = true
   name =
   email =
+  signingkey =
 
 [alias]
   co = checkout
@@ -26,7 +26,6 @@
 [core]
   editor = vim
   excludesfile = ~/.gitignore_global
-  fsmonitor = true
 
 [merge]
   summary = true
@@ -63,3 +62,5 @@
   detachedHead = false
 [init]
   defaultBranch = main
+[gpg]
+  format = ssh
