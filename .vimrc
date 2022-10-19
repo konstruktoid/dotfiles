@@ -4,6 +4,7 @@ set fileencoding=utf-8
 set maxmempattern=25000
 set modeline
 set nobackup
+set noswapfile
 set nowritebackup
 set number
 set paste
@@ -19,6 +20,7 @@ match ExtraWhitespace /\s\+$/
 au BufEnter * set ai sw=2 ts=2 sta et fo=croql
 au BufEnter *.go set ai sw=8 ts=8 sta et fo=croql
 au BufEnter *.py set ai sw=4 ts=4 sta et fo=croql
+au BufEnter *.rs set ai sw=4 ts=4 sta et fo=croql
 
 au BufWinEnter * let w:m1=matchadd('Search', '\%<81v.\%>77v', -1)
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
@@ -51,6 +53,7 @@ au FileType * set tabstop=2|set shiftwidth=2|set noexpandtab
 au FileType go setlocal noexpandtab shiftwidth=4 tabstop=4 softtabstop=4 nolist
 au FileType python set tabstop=4|set shiftwidth=4|set expandtab
 au FileType make setlocal noexpandtab
+au FileType rust setlocal noexpandtab shiftwidth=4 tabstop=4 softtabstop=4 nolist
 
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhitespace /\s\+$/
