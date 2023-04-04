@@ -1,3 +1,5 @@
+ansible
+ansible-lint
 black
 codespell
 dlint
@@ -6,5 +8,9 @@ flake8-bandit
 flake8-bugbear
 flake8-deprecated
 flake8-executable
+molecule
+molecule-plugins
 passlib
+pylint
+python-vagrant
 safety
