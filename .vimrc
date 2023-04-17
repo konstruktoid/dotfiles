@@ -34,10 +34,8 @@ au BufWritePost *.md !mdl %
 au BufWritePost *.pp !puppet-lint %
 au BufWritePost *.py !black %
 au BufWritePost *.py.j2 !black %
-au BufWritePost *.py !pylint %
-au BufWritePost *.py.j2 !pylint %
-au BufWritePost *.py !python3 -m flake8 --ignore=E501,W503,S101 %
-au BufWritePost *.py.j2 !python3 -m flake8 --ignore=E501,W503,S101%
+au BufWritePost *.py !ruff check --select ALL --ignore ANN --ignore D --ignore INP --ignore PTH --ignore T20 .
+au BufWritePost *.py.j2 !ruff check --select ALL --ignore ANN --ignore D --ignore INP --ignore PTH --ignore T20 .
 au BufWritePost *.py !codespell %
 au BufWritePost *.sh !shellcheck -x --format gcc %
 au BufWritePost *.sh.erb !shellcheck -x --format gcc %
