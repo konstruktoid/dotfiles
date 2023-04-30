@@ -3,8 +3,7 @@ ansible-lint
 black
 codespell
 molecule
-molecule-plugins
+molecule-plugins[vagrant]
 passlib
 pylint
-python-vagrant
 ruff
